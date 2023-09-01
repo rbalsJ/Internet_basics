@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 100%;
+            width: 980px;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 230px;
+            height: 150px;
+        }
+
+        table {
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+        }
+
+        th {
+            font-size: 15px;
+            padding: 15px;
+            background-color: gainsboro;
+        }
+
+        td {
+            width: 150px;
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            background-color: black;
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+
+        .menu {
+            color: white;
+            font-size: 18px;
+            font-weight: normal;
+            background-color: gray;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 10px;
+        }
+
+        .intro {
+            margin-top: 40px;
+            width: 230px;
+            text-align: center;
+            float: left;
+        }
+
+        #spec {
+            margin-top: 0px;
+            width: 750px;
+            float: left;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+			display: grid;
+            grid-template-rows: 225px 225px;
+	        grid-template-columns: 225px 225px 225px;
+			grid-gap: 20px;
+			background-color: #f2f2f2;
+			padding: 20px;
+			box-sizing: border-box;
+			min-height: 300px;
+		}
+
+        .box {
+			background-color: #fff;
+			border: 2px solid black;
+			box-sizing: border-box;
+            overflow: hidden;
+		}
+
+        img.logo {
+            width: 200px;
+            height: 200px;
+        }
+
+        .footer {
+            float: left;
+            width: 980px;
+            text-align: center;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 class = "title">권민규의 홈페이지</h1>
+    <h2 class = "menu">
+        Home&nbsp;&nbsp;&nbsp;&nbsp;
+        Profile&nbsp;&nbsp;&nbsp;&nbsp;
+        Education&nbsp;&nbsp;&nbsp;&nbsp;
+        Skills&nbsp;&nbsp;&nbsp;&nbsp;
+        Contact
+    </h2>
+    
+    <h3 class = "intro">
+        201724412 권민규<br>
+        <img src="./images/pengsoo.png"><br>
+        <table>
+            <tr>
+                <th>이름</th>
+                <td>권민규</td>
+            </tr>
+            <tr>
+                <th>학번</th>
+                <td>201724412</td>
+            </tr>
+            <tr>
+                <th>학과</th>
+                <td>정보컴퓨터공학부</td>
+            </tr>
+            <tr>
+                <th>학년</th>
+                <td>4학년</td>
+            </tr>
+        </table>
+    </h3>
+
+    <section id="spec">
+        <h4>Education</h4>
+        <p>2023 인터넷과웹기초</p>
+        <hr>
+        <h4>Skills</h4>
+        <div class="container">
+            <div class="box"><img class="logo" src="./images/cplus.png"></div>
+            <div class="box"><img class="logo" src="./images/java.png"></div>
+            <div class="box"><img class="logo" src="./images/csharp.png"></div>
+            <div class="box"><img class="logo" src="./images/python.png"></div>
+            <div class="box"><img class="logo" src="./images/javascript.png"></div>
+            <div class="box"><img class="logo" src="./images/react.png"></div>
+        </div>
+    </section>
+
+    <h5 class="footer">Copyright &copy 2023 권민규</h5>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도 페이지</title>
+    <style>
+        body {
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+        
+        /* 최소 개발 기준 7 : float 활용 */
+        #map {
+            width: 70%;
+            height: 500px;
+            float: left;
+        }
+
+        /* 최소 개발 기준 7 : float 활용 */
+        #addressInfo {
+            width: 30%;
+            height: 500px;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /*최소 개발 기준 6 : pseudo-element 활용 */
+        #addressInput::placeholder {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="addressInput" placeholder="주소를 입력하세요">
+    <button onclick="searchAddress()">검색</button>
+    <button onclick="openPathFind()">길찾기</button>
+    <div id="map"></div>
+    <div id="addressInfo">
+        <p>1. 음식 사진을 클릭하면 해당 식당의 주소가 표시됩니다.<br><br>
+            2. 식당의 주소를 복사합니다.<br><br>
+            3. 복사한 주소를 검색창에 넣고 검색 버튼을 누르면 지도에 위치가 표시됩니다.
+        </p>
+    </div>
+
+    <!-- 최소 개발 기준 13 : jQuery 및 JSON 기능 활용-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=99d0675c262e009b9658241d9dfd8e4e&libraries=services"></script>
+    
+    <script>
+        //최소 개발 기준 2. 카카오맵 open api 활용
+
+        // 최소 개발 기준 11 : DOM 활용하여 HTML element 혹은 CSS property 다루기
+        var mapContainer = document.getElementById('map');
+
+        var link = "none";
+
+        var mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 1
+        };
+           
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        
+        //최소 개발 기준 3 : 서로 다른 input 3개 이상 활용
+        function searchAddress() {
+            // 최소 개발 기준 11 : DOM 활용하여 HTML element 혹은 CSS property 다루기
+            var address = document.getElementById('addressInput').value;
+
+            //최소 개발 기준 12 : 입력 Format 에러 처리 구현
+            var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+            if(special_pattern.test(address) == true){
+                alert('주소는 특수문자를 포함할 수 없습니다. 다시 입력해주세요.');
+            }
+            
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+            
+            geocoder.addressSearch(address, function(result, status) {
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    var coordX = coords.getLat();
+                    var coordY = coords.getLng();
+                    link = "https://map.kakao.com/link/to/" + address + "," + coordX + "," + coordY;
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+        
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                }
+            });
+        }
+
+        function openPathFind() {
+            window.location.href = link;
+        }
+    </script>
+</body>
+</html>

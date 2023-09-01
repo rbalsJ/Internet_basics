@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집 정보 서비스</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <!-- 최소 개발 기준 5. Sementic 활용-->
+    <header>
+        <h1 id="title">부산 맛집 정보 서비스</h1>
+    </header>
+  
+
+    <main>
+        <p>안녕하세요! 사용하고자 하는 언어를 선택해주세요.<br><br>
+            Hello! Please select your language.<br><br>
+            こんにちは! 言語を選択してください。
+        </p>      
+
+        <div class="searchBox">
+            <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+            <button onclick="searchData()">검색</button>
+            <button onclick="searchReset()">초기화</button>
+        </div>
+    
+        <!-- 최소 개발 기준 5. Sementic 활용-->
+        <nav class="language-list">
+            <ul>
+                <!-- 최소 개발 기준 3, 4 : 서로 다른 <input> 3개 이상 활용, List 활용-->
+                <li><a href="#" class="button" id="korBtn" onclick="getData('getFoodKr', 1)">한국어</a></li>
+                <li><a href="#" class="button" id="engBtn" onclick="getData('getFoodEn', 1)">English</a></li>
+                <li><a href="#" class="button" id="jaBtn" onclick="getData('getFoodJa', 1)">日本語</a></li>
+                <li><a href="#" class="button" id="mapBtn" onclick="window.open('map.html')">지도 보기</a></li>
+            </ul>
+        </nav>
+        
+        <div id="result" class="grid-container"></div>
+        <a href="#" id="prevButton" class="button" onclick="getPrevPage()">이전 페이지</a>
+        <a href="#" id="nextButton" class="button" onclick="getNextPage()">다음 페이지</a>
+
+    </main>
+
+    <!-- 최소 개발 기준 5. Sementic 활용-->
+    <footer class="footer" style="text-align: center;">
+        &copy; 2023 권민규
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="display.js"></script>
+</body>
+</html>

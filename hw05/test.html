@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 100%;
+            width: 1060px;
+            margin: 0 auto;
+        }
+
+        .name {
+            text-align: center;
+            color: white;
+            background-color: black;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .container {
+			display: grid;
+            width: 980px;
+            grid-template-rows: 270px 40px 50px 270px 40px 50px;
+            grid-template-columns: 215px 215px;
+			grid-gap: 40px;
+			box-sizing: content-box;
+			min-height: 300px;
+            margin: 0 auto;
+            margin-top: 50px;
+		}
+
+        .box {
+            background-color: #fff;
+			box-sizing: content-box;
+        }
+
+        img {
+            width: 210px;
+            height: 220px;
+        }
+
+        .model {
+            text-align: center;
+            padding: 7px;
+            background-color: #fff;
+			box-sizing: content-box;
+		}
+
+        .info {
+            text-align: center;
+            font-size: 15px;
+            background-color: #fff;
+			box-sizing: content-box;
+        }
+
+        .footer{
+            text-align: center;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: normal;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="name">201724412 권민규</h1>
+    <h2 class="title">Compare the products</h2>
+    <div class="container">
+		<div class="box"><img src="./images/sph-a5000.jpg"></div>
+		<div class="box"><img src="./images/sch-w120.jpg"></div>
+		<div class="box"><img src="./images/sch-v500.jpg"></div>
+		<div class="box"><img src="./images/sch-s250.jpg"></div>
+		<div class="model">SPH-A5000</div>
+		<div class="model">SCH-W120</div>
+        <div class="model">SCH-V500</div>
+        <div class="model">SCH-S250</div>
+        <div class="info">세계 최초의 전자동 폴더</div>
+        <div class="info">한국 최초의 WCDMA 폰</div>
+        <div class="info">가로본등 로테이션 폴더폰</div>
+        <div class="info">세계 최초의 500만 화소 카메라 탑재 휴대폰</div>
+	</div>
+    <h3 class="footer">Copyright &copy 2023 권민규</h3>
+</body>
+</html>
